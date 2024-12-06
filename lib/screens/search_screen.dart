@@ -23,10 +23,6 @@ class SearchScreen extends StatelessWidget
           (
             decoration: InputDecoration
             (
-              icon: Icon(Icons.add_ic_call_outlined),
-              prefixIcon: Icon(Icons.access_alarm_outlined),
-              suffixIcon: Icon(Icons.accessibility_new),
-              label: Text(""),
               //filled: true,
               //fillColor: Colors.amber,
               border: OutlineInputBorder
@@ -37,10 +33,12 @@ class SearchScreen extends StatelessWidget
               focusedBorder: OutlineInputBorder
               (
                 borderRadius: BorderRadius.circular(15),
-                borderSide: BorderSide(color: Colors.red)
+                borderSide: BorderSide(color: Colors.blue)
               ),
               enabled: true,
-              helperText: "ahmed",contentPadding: EdgeInsets.all(30)
+              contentPadding: EdgeInsets.all(30),
+              hintText: "Enter the city name",
+              hintStyle: TextStyle(color: Colors.grey)
             ),
             //keyboardType: TextInputType.numberWithOptions(),
             maxLines: 1,
@@ -53,6 +51,5 @@ class SearchScreen extends StatelessWidget
         ),
       ),
     );
-    
   }
 }
