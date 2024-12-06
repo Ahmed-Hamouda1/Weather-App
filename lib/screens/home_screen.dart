@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/no_weather_body.dart';
+import 'package:weather_app/widgets/weatehr_body.dart';
 
 class HomeScreen extends StatelessWidget 
 {
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget
       ),
       body: const Center
       (
-        child: NoWeatherBody(),
+        child: WeatherBody(),
       ),
     );
   }
