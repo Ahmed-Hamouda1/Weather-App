@@ -10,14 +10,19 @@ class WeatherService
   WeatherService({required this.cityName});
   Future<WeatherModel?> getWeather()async
   {
-    try 
-    {
-      Response response=await dio.get("$baseURL/forecast.json?key=$apiKey&q=$cityName&days=1");
-      WeatherModel weatherModel=WeatherModel.fromJason(response);
-      return weatherModel;
-    } catch (e) 
-    {
-      return null;
-    }
+    
+      Response response=await dio
+        .get("$baseURL/forecast.json?key=$apiKey&q=$cityName&days=1");
+      if (response.statusCode!>199&&response.statusCode!<301)
+      {
+        WeatherModel weatherModel=WeatherModel.fromJason(response);
+        return weatherModel;
+      }
+      else
+      {
+        final String errorMessage = response.data['error']['message'];
+        throw Exception(errorMessage);
+      }
+    
   }
 }
