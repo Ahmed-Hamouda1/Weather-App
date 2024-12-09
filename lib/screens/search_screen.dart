@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/weather_model.dart';
+import 'package:weather_app/screens/home_screen.dart';
+import 'package:weather_app/services/weather_service.dart';
+import 'package:weather_app/widgets/weatehr_body.dart';
 
 class SearchScreen extends StatelessWidget 
 {
-  String ?value;
+  //String ?value;
   SearchScreen({super.key});
+
   @override
   Widget build(BuildContext context) 
   {
@@ -43,9 +48,22 @@ class SearchScreen extends StatelessWidget
             //keyboardType: TextInputType.numberWithOptions(),
             maxLines: 1,
             maxLength: 20,
-            onSubmitted: (value)
+            onSubmitted: (value) async
             {
-              print(value);
+              WeatherModel? weatherModel=await WeatherService().getWeather(cityName: value);
+              print(weatherModel!.avgTem);
+              Navigator.push
+              (
+                context, 
+                MaterialPageRoute
+                (
+                  builder: (context)
+                  {
+                    return HomeScreen(body: WeatherBody(weatherModel: weatherModel!),);
+                  }
+                )
+              );
+
             },
           ),
         ),

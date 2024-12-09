@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/weatehr_body.dart';
 
 class HomeScreen extends StatelessWidget 
 {
-  HomeScreen({super.key});
+  Widget ?body;
+  HomeScreen({super.key,required this.body});
   @override
   Widget build(BuildContext context) 
   {
@@ -15,9 +15,9 @@ class HomeScreen extends StatelessWidget
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
-      body: const Center
+      body: Center
       (
-        child: WeatherBody(),
+        child: body,
       ),
     );
   }

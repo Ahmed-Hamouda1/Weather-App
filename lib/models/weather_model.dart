@@ -26,9 +26,9 @@ class WeatherModel
       cityName: json["location"]["name"],
       date: json["current"]["last_updated"],
       Image: json["forecast"]["forecastday"][0]["day"]["condition"]["icon"],
-      maxTem: json["forecast"]["forecastday"][0]["day"],
-      minTem: json["forecast"]["forecastday"][0]["day"],
-      avgTem: json["forecast"]["forecastday"][0]["day"],
+      maxTem: json["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
+      minTem: json["forecast"]["forecastday"][0]["day"]["mintemp_c"],
+      avgTem: json["forecast"]["forecastday"][0]["day"]["avgtemp_c"],
       stutesText: json["forecast"]["forecastday"][0]["day"]["condition"]["text"]
     );
   }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/weather_model.dart';
 
 class WeatherBody extends StatelessWidget 
 {
-  const WeatherBody({super.key});
+  WeatherModel weatherModel;
+  WeatherBody({super.key,required this.weatherModel});
 
   @override
   Widget build(BuildContext context) 
@@ -14,26 +16,26 @@ class WeatherBody extends StatelessWidget
         mainAxisAlignment: MainAxisAlignment.center,
         children: 
         [
-          Text("Cairo"),
-          Text("Update at : "),
+          Text(weatherModel.cityName),
+          Text("Update at : ${weatherModel.date}"),
           Row
           (
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: 
             [
-              Image.network("https://cdn.weatherapi.com/weather/64x64/night/113.png"),
-              Text("18"),
+              Image.network(weatherModel.Image),
+              Text("${weatherModel.avgTem}"),
               Column
               (
                 children: 
                 [
-                  Text("max : "),
-                  Text("min : "),
+                  Text("${weatherModel.maxTem}"),
+                  Text("${weatherModel.minTem}"),
                 ],
               ),
             ],
           ),
-          Text("Light rain")
+          Text("${weatherModel.stutesText}")
         ],
       ),
     );

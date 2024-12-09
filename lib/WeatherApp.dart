@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/screens/home_screen.dart';
+import 'package:weather_app/widgets/no_weather_body.dart';
 
 class WeatherApp extends StatelessWidget 
 {
@@ -10,7 +11,7 @@ class WeatherApp extends StatelessWidget
     return MaterialApp
     (
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: HomeScreen(body: NoWeatherBody(),),
     );
   }
 }
