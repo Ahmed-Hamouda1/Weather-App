@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/weather_model.dart';
-import 'package:weather_app/screens/home_screen.dart';
 import 'package:weather_app/services/weather_service.dart';
-import 'package:weather_app/widgets/weatehr_body.dart';
 
 class SearchScreen extends StatelessWidget 
 {
@@ -50,20 +48,30 @@ class SearchScreen extends StatelessWidget
             maxLength: 20,
             onSubmitted: (value) async
             {
-              WeatherModel? weatherModel=await WeatherService().getWeather(cityName: value);
+              weatherModel=await WeatherService().getWeather(cityName: value);
               print(weatherModel!.avgTem);
-              Navigator.push
+              Navigator.pop
               (
-                context, 
-                MaterialPageRoute
-                (
-                  builder: (context)
-                  {
-                    return HomeScreen(body: WeatherBody(weatherModel: weatherModel!),);
-                  }
-                )
+                context,
+              //   MaterialPageRoute
+              //   (
+              //     builder: (context)
+              //     {
+              //       return HomeScreen(body: WeatherBody(weatherModel: weatherModel!));
+              //     }
+              //   )
               );
-
+              // Navigator.push
+              // (
+              //   context, 
+              //   MaterialPageRoute
+              //   (
+              //     builder: (context)
+              //     {
+              //       return HomeScreen(body: WeatherBody(weatherModel: weatherModel!),);
+              //     }
+              //   )
+              // );
             },
           ),
         ),
@@ -71,3 +79,5 @@ class SearchScreen extends StatelessWidget
     );
   }
 }
+
+WeatherModel? weatherModel;

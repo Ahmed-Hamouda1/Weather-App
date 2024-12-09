@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/screens/search_screen.dart';
+import 'package:weather_app/widgets/no_weather_body.dart';
+import 'package:weather_app/widgets/weatehr_body.dart';
 
 class HomeScreen extends StatelessWidget 
 {
-  Widget ?body;
-  HomeScreen({super.key,required this.body});
+  //Widget ?body;
+  HomeScreen({super.key,/*required this.body*/});
   @override
   Widget build(BuildContext context) 
   {
@@ -17,7 +20,7 @@ class HomeScreen extends StatelessWidget
       ),
       body: Center
       (
-        child: body,
+        child: weatherModel==null?NoWeatherBody():WeatherBody(),
       ),
     );
   }
